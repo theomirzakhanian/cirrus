@@ -42,7 +42,7 @@ CI (`.github/workflows/ci.yml`) runs `npm ci`, `npx tsc -b` and `npm run build` 
 Do these in order.
 
 1. Edit `src/site.ts`: `name`, `repo`, `license`, `copyright`, then the menus. Every link is typed and built from `repo`, so set that first. Do not leave a placeholder URL anywhere.
-2. Edit `index.html`: `<title>`, the meta description, and the `og:` tags.
+2. Edit `index.html`: `<title>`, the meta description, and the `og:` and `twitter:` tags. `og:image` and `og:url` are absolute URLs that currently point at the demo site, so replace `public/og.jpg` (1200 x 630) and set both to your own domain.
 3. Edit the tokens in `src/index.css`. If you change `--color-link`, keep it at 4.5:1 or better against white.
 4. Rewrite the copy. The text in the components describes Cirrus itself, so every sentence has to be replaced with something true about the new project. Rules for copy: labels are one to three words, buttons are verbs, no marketing filler, no em dashes, no emoji. Do not invent benchmarks, testimonials, customers or numbers.
    - `hero.tsx`: the headline, the license badge, and the text inside the product window.
