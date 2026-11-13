@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+
+/* Fonts are self-hosted, latin only, one variable file each (SIL OFL). */
+@font-face {
+  font-family: 'Geist Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/geist/files/geist-latin-wght-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Geist Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2') format('woff2-variations');
+}
+/* Google Sans Flex (SIL OFL), set to optical size 100 and kept to the weight axis.
+   Chosen by scoring letter shapes against the reference font; see README. */
+@font-face {
+  font-family: 'Display';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  size-adjust: 98.8%;
+  src: url('./fonts/google-sans-flex-display.woff2') format('woff2-variations');
+}
+
+@theme {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Display', 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --color-ink: #090b0c;
+  --color-muted: #737373;
+  --color-faint: #a1a1a1;
+  --color-link: #0077bc;
+  --color-line: rgb(0 0 0 / 0.06);
+  --color-wash: #fafafa;
+  --color-fill: #f5f5f5;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  /* The pointing hand on everything you can click. */
+  a,
+  button,
+  summary,
+  label[for],
+  [role='button'],
+  [role='tab'],
+  [role='menuitem'] {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+  }
+  [id] {
+    scroll-margin-top: 72px;
+  }
+  /* This display face sets tighter than the reference one; a touch of tracking evens the line lengths. */
+  .font-display {
+    letter-spacing: 0.019em;
+  }
+  ::selection {
+    background: rgb(0 132 209 / 0.18);
+  }
+}
+
+/* Corners are squircles (smooth, like app icons) wherever the browser supports it.
+   Full pills and dots stay perfectly round. */
+*,
+::before,
+::after {
+  corner-shape: superellipse(1.4);
+}
+.rounded-full {
+  corner-shape: round;
+}
+
+/* Page rails: the two hairlines that run down the whole page. */
+@utility rails {
+  border-inline: 1px solid var(--color-line);
+}
+@utility shell {
+  padding-inline: 16px;
+  @media (width >= 48rem) {
+    padding-inline: 40px;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 96px;
+  }
+}
+@utility frame {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1286px;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-counter {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes hand-tap {
+  0%,
+  70%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  78% {
+    transform: translate(0, 1px) scale(0.9);
+  }
+  86% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
