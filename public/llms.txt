@@ -1,0 +1,22 @@
+# Cirrus
+
+> A landing page template for open source projects, built to be driven by a coding agent. Plain React and CSS (Vite, React 19, TypeScript, Tailwind v4), MIT licensed, static output, no trackers.
+
+Start with AGENTS.md. It lists the commands, where everything lives, the ordered steps to turn the template into a landing page for a new project, and the rules the code has to keep following.
+
+## Docs
+
+- [AGENTS.md](https://raw.githubusercontent.com/theomirzakhanian/cirrus/main/AGENTS.md): commands, file map, customisation steps, rules
+- [README.md](https://raw.githubusercontent.com/theomirzakhanian/cirrus/main/README.md): overview, deploy, page weight, credits
+
+## Files you will edit first
+
+- [src/site.ts](https://raw.githubusercontent.com/theomirzakhanian/cirrus/main/src/site.ts): name, repo URL, license, every menu and footer link
+- [src/App.tsx](https://raw.githubusercontent.com/theomirzakhanian/cirrus/main/src/App.tsx): the page, one line per section
+- [src/index.css](https://raw.githubusercontent.com/theomirzakhanian/cirrus/main/src/index.css): design tokens and font faces
+
+## Use it
+
+- [Repository](https://github.com/theomirzakhanian/cirrus)
+- [Use this template](https://github.com/theomirzakhanian/cirrus/generate)
+- [Live demo](https://cirrus-beige.vercel.app)
